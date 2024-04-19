@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="http://localhost:3000/stylesheets/widget.css"
+    />
+    <title>Wally Payment Widget</title>
+  </head>
+  <body>
+    <button id="payWithWallyBtn">Pay with Wally</button>
+
+    <script>
+      document
+        .getElementById("payWithWallyBtn")
+        .addEventListener("click", function () {
+          // Get destination and amount from the vendor's website
+          var destination = "auth0|661ef04bfdf3cb5cbd844cbf"; // Replace with actual destination
+          var amount = 0.0001; // Replace with actual amount
+
+          // Redirect user to Wally website with confirmation data
+          window.location.href =
+            "http://localhost:3000/confirm-payment?destination=" +
+            encodeURIComponent(destination) +
+            "&amount=" +
+            encodeURIComponent(amount);
+        });
+    </script>
+  </body>
+</html>

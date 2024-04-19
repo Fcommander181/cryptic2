@@ -1,0 +1,50 @@
+<html lang="en">
+  <%-include('./modules/head')%>
+  <body>
+    <%-include('./modules/nav')%>
+    <div class="container">
+      <h1>Integration Guide for Cryptic Payment System</h1>
+      <p>This guide will help you integrate the Cryptic payment system into your website.</p>
+  
+      <h2>Step 1: Add the Stylesheet</h2>
+      <p>Add the following line into the `<head>` of your HTML page:</p>
+      <pre><code>&lt;link rel="stylesheet" href="http://localhost:3000/stylesheets/widget.css" /&gt;</code></pre>
+  
+      <h2>Step 2: Add the Payment Button</h2>
+      <p>Add the following line where you want the payment button to appear:</p>
+      <pre><code>&lt;button id="payWithCrypticBtn" class="btn btn-primary"&gt;Pay with Cryptic&lt;/button&gt;</code></pre>
+  
+      <h2>Step 3: Add the Payment Processing Script</h2>
+      <p>Add the following script to your page. This script will process the payment when the button is clicked:</p>
+      <pre><code>
+  &lt;script&gt;
+    document
+      .getElementById("payWithCrypticBtn")
+      .addEventListener("click", function () {
+        // Get destination and amount from the vendor's website
+        var destination = "<%=user.sub%>"; // Replace with actual destination
+        var amount = 0.0001; // Replace with actual amount
+  
+        // Redirect user to Cryptic website with confirmation data
+        window.location.href =
+          "http://localhost:3000/confirm-payment?destination=" +
+          encodeURIComponent(destination) +
+          "&amount=" +
+          encodeURIComponent(amount);
+      });
+  &lt;/script&gt;
+      </code></pre>
+      <p>Remember to replace the `amount` variable with your own value.</p>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    
+    <script
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+  crossorigin="anonymous"
+></script>
+  </body>
+</html>

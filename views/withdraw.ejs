@@ -1,0 +1,97 @@
+<html lang="en">
+  <%-include('./modules/head')%>
+  <body>
+    <%-include('./modules/nav')%>
+    <div class="container">
+      <h1 class="my-4">Withdraw</h1>
+      <form id="withdrawForm" action="/withdraw" method="post">
+        <div class="form-group">
+          <label for="amount">Amount:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="amount"
+            name="amount"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label>Method:</label><br />
+          <input
+            type="radio"
+            name="method"
+            value="creditCard"
+            id="creditCard"
+          />
+          Credit Card<br />
+          <input
+            type="radio"
+            name="method"
+            value="cryptoWallet"
+            id="cryptoWallet"
+          />
+          Crypto Wallet
+        </div>
+        <div id="creditCardFields" style="display: none">
+          <div class="form-group">
+            <label for="cardNumber">Card Number:</label>
+            <input
+              type="text"
+              class="form-control"
+              id="cardNumber"
+              name="cardNumber"
+            />
+          </div>
+          <div class="form-group">
+            <label for="cvv">CVV:</label>
+            <input type="text" class="form-control" id="cvv" name="cvv" />
+          </div>
+          <div class="form-group">
+            <label for="expirationDate">Expiration Date:</label>
+            <input
+              type="text"
+              class="form-control"
+              id="expirationDate"
+              name="expirationDate"
+            />
+          </div>
+        </div>
+        <div id="cryptoWalletField" style="display: none">
+          <div class="form-group">
+            <label for="cryptoWallet">Crypto Wallet:</label>
+            <input
+              type="text"
+              class="form-control"
+              id="cryptoWallet"
+              name="cryptoWallet"
+            />
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+    <script>
+      var displayStyle = function (checked) {
+        return checked ? "block" : "none";
+      };
+
+      document
+        .getElementById("creditCard")
+        .addEventListener("click", function () {
+          document.getElementById("creditCardFields").style.display =
+            displayStyle(this.checked);
+          document.getElementById("cryptoWalletField").style.display =
+            displayStyle(!this.checked);
+        });
+      document
+        .getElementById("cryptoWallet")
+        .addEventListener("click", function () {
+          document.getElementById("cryptoWalletField").style.display =
+            displayStyle(this.checked);
+          document.getElementById("creditCardFields").style.display =
+            displayStyle(!this.checked);
+        });
+    </script>
+    <%-include('./modules/footer')%>
+  </body>
+</html>

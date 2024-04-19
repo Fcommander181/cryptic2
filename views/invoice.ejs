@@ -1,0 +1,40 @@
+<html lang="en">
+  <%-include('./modules/head')%>
+  <body>
+    <%-include('./modules/nav')%>
+    <div class="container">
+      <h1 class="mt-5 mb-4">Invoice</h1>
+      <div class="row">
+        <div class="col-md-6">
+          <p><strong>Destination:</strong> <%= destination.nickname %></p>
+          <p><strong>Source:</strong> <%= source.nickname %></p>
+          <p><strong>Amount:</strong> <%= amount %></p>
+        </div>
+      </div>
+      <form action="/confirm-payment" method="POST">
+        <input
+          type="hidden"
+          name="destinationId"
+          value="<%= destination._id %>"
+        />
+        <input type="hidden" name="sourceId" value="<%= source._id %>" />
+        <input type="hidden" name="amount" value="<%= amount %>" />
+        <div class="form-check mb-3">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            name="confirm"
+            id="confirmCheckbox"
+            required
+          />
+          <label class="form-check-label" for="confirmCheckbox"
+            >I confirm the payment</label
+          >
+        </div>
+        <button type="submit" class="btn btn-primary">Confirm Payment</button>
+      </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <%-include('./modules/footer')%>
+  </body>
+</html>

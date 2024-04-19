@@ -1,0 +1,12 @@
+#payWithCrypticBtn {
+  background-color: #0d6efd; /* Blue background */
+  color: white; /* White text */
+  padding: 10px 20px; /* Padding */
+  border: none; /* Remove border */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Cursor pointer */
+}
+
+#payWithCrypticBtn:hover {
+  background-color: darkblue; /* Darker blue on hover */
+}

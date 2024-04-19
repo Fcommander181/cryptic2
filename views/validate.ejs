@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%-include('./modules/head')%>
+  <body>
+    <main>
+      <form action="/" method="post">
+        <div class="invoice">
+          You Are going to pay :
+          <div class="site">
+            <h1>From :</h1>
+          </div>
+          <div class="site">
+            <h1>To :</h1>
+          </div>
+          <div class="price">
+            <h1>Cost :<%=price%></h1>
+          </div>
+          <input type="checkbox" for="term-service" />
+          <label for="term-service">
+            Agree to <a href="#">Terms and Conditions</a> and
+            <a href="#">Privacy Statement</a>
+          </label>
+          <button type="submit" class="confirm">Confirm</button>
+          <button type="reset" class="cancel">Cancel</button>
+        </div>
+      </form>
+
+      <!-- <div class="mail-verif">
+        <label for="verif-mail">
+          Enter the Code sent on your inbox to verify your Account
+        </label>
+        <input type="text" id="verif-mail" />
+        <button class="send-code">Send Code</button>
+      </div> -->
+    </main>
+  </body>
+</html>
