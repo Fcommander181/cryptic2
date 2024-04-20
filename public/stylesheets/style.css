@@ -1,3 +1,42 @@
+body,
+* {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  box-sizing: border-box;
+}
+
+/* navBar */
+
+.navbar-brand {
+  font-weight: bold;
+  color: white;
+}
+
+.navbar-collapse {
+  justify-content: space-around;
+  color: white;
+}
+
+.navbar-nav {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  color: white;
+}
+.nav-item {
+  padding-left: 60px;
+}
+
+.nav-link {
+  color: white;
+}
+
+.nav-link:hover {
+  background-color: #1d1f2c;
+  color: #e0e2e7;
+  border-radius: 10px;
+  transition: 0.3s;
+}
 .col-lg-4 {
   margin: 0 auto;
 }
@@ -58,4 +97,218 @@ h4 {
 .table th {
   padding: 0.25rem;
   font-size: 0.875rem;
+}
+
+/*profile */
+.account {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+div.d-block {
+  background-color: white;
+  z-index: 1;
+  color: black;
+  position: absolute;
+  top: 50px;
+  right: 15px;
+  border: 1px solid black;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 1px inset black;
+}
+
+div.d-block::after {
+  content: "";
+  border: 0px 0px 1px 0px solid black;
+}
+/* Dashboard */
+
+@import url("https://fonts.cdnfonts.com/css/public-sans");
+
+main {
+  margin: 30px auto;
+  height: 344px;
+  width: 50%;
+  border: 1px solid #e0e2e7;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  width: 624px;
+  padding: 16px;
+  border-radius: 8px;
+  &.green {
+    background: linear-gradient(90deg, #2bb2fe 0%, #22caad 100%);
+  }
+  &.blue {
+    background: #1d1f2c;
+  }
+  .top-right {
+    right: 0;
+    top: 0;
+    position: absolute;
+  }
+  .center-left {
+    left: 0;
+    top: 50%;
+    position: relative;
+  }
+  .bottom-left {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+  }
+  .logo {
+    z-index: 1;
+    top: 8px;
+    right: 16px;
+    width: 64px;
+    height: 64px;
+    flex-shrink: 0;
+    position: absolute;
+  }
+  .flex {
+    display: flex;
+    gap: 4px;
+    flex-direction: column;
+    h5 {
+      color: #fff;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 18px;
+      letter-spacing: 0.06px;
+    }
+    h1 {
+      color: #fff;
+      font-size: 30px;
+      font-style: normal;
+      text-align: left;
+      font-weight: 600;
+      line-height: 32px;
+      letter-spacing: 0.24px;
+    }
+  }
+  footer {
+    display: flex;
+    justify-content: space-between;
+    .form-control {
+      color: #fff;
+      background-color: #1d1f2c;
+      border: none;
+      outline: none;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 20px; /* 142.857% */
+      letter-spacing: 0.07px;
+    }
+    .form-control:focus {
+      text-decoration: none;
+      background-color: #1d1f2c;
+      outline: none;
+      border: none;
+    }
+  }
+}
+
+/* Withdraw */
+
+h1 {
+  text-align: center;
+  margin: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 50%;
+  margin: 30px auto;
+  border: 2px solid #797979;
+  padding: 30px;
+  border-radius: 15px;
+}
+
+form * {
+  margin-top: 20px;
+}
+
+form label {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+/* development */
+
+.development .vscode {
+  background-color: #1e1e1e;
+  color: #d4d4d4;
+  padding: 10px;
+  border-radius: 5px;
+  width: 70%;
+  margin: 20px auto;
+}
+
+.development .code-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 5px;
+}
+
+.development .language {
+  color: #569cd6;
+  margin-right: 10px;
+}
+
+.development .copy-button {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.development .copy-button:hover {
+  background-color: #555;
+}
+.development h1 {
+  font-size: 60px;
+  text-align: center;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+.development h3 {
+  font-size: 25px;
+  text-align: center;
+  color: gray;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+.development h2 {
+  font-size: 30px;
+  word-spacing: 5px;
+}
+.development p {
+  font-size: 15px;
+}
+.development .guide-header {
+  margin-bottom: 80px;
+}
+.development code {
+  font-size: 17px;
+  font-family: "Courier New", Courier, monospace;
+}
+.development .margins {
+  margin: 0 auto;
+}
+.development .steps {
+  margin: 20px auto;
+  width: 70%;
+}
+.development .green {
+  color: rgb(108, 170, 108);
 }

@@ -3,23 +3,54 @@
   <body>
     <%-include('./modules/nav')%>
     <div class="container">
-      <h1 class="my-4">Your Wallet Balance</h1>
-      <div class="card">
-        <div class="card-body">
-          <h1 class="card-title">Eth Balance: <%= usrdtBalance %> Eth</h1>
-          <h4 class="card-text">Equivalent in USD: <%= usrdtBalance %></h4>
-          <h5 class="card-text">
-            Wallet Address:
-            <input
+      <h1>Your Wallet</h1>
+      <main class="blue">
+      </svg>
+      <svg class="top-right" xmlns="http://www.w3.org/2000/svg" width="212" height="172" viewBox="0 0 212 172" fill="none">
+          <g opacity="0.5" filter="url(#filter0_f_13_39661)">
+              <path d="M229.494 -75.1934C282.395 -61.0184 280.29 -27.1947 266.062 25.904C251.834 79.0026 200.862 119.921 147.961 105.746C95.0588 91.5709 93.4904 29.1889 107.718 -23.9097C121.946 -77.0084 176.592 -89.3684 229.494 -75.1934Z" fill="#3250FF" />
+          </g>
+          <defs>
+              <filter id="filter0_f_13_39661" x="0.0703125" y="-180.627" width="374.644" height="389.208" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                  <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                  <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+                  <feGaussianBlur stdDeviation="50" result="effect1_foregroundBlur_13_39661" />
+              </filter>
+          </defs>
+      </svg>
+      <svg class="bottom-left" xmlns="http://www.w3.org/2000/svg" width="169" height="172" viewBox="0 0 169 172" fill="none">
+          <g opacity="0.25" filter="url(#filter0_f_13_39662)">
+              <path d="M32.8926 75.7102C74.4101 86.8348 72.7576 113.38 61.5916 155.052C50.4256 196.724 10.4228 228.836 -31.0947 217.712C-72.6122 206.587 -73.8431 157.63 -62.6771 115.958C-51.5111 74.2857 -8.62491 64.5856 32.8926 75.7102Z" fill="#22CAAD" />
+          </g>
+          <defs>
+              <filter id="filter0_f_13_39662" x="-168.679" y="-28.5544" width="337.061" height="348.491" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                  <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                  <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+                  <feGaussianBlur stdDeviation="50" result="effect1_foregroundBlur_13_39662" />
+              </filter>
+          </defs>
+      </svg>
+        <img class="logo" src="./images/logo.png" alt="Your Logo" width="100" height="100" />
+        <div class="flex">
+          <h5>Balance</h5>
+          <div class="row">
+            <h1 class="col"><%= usrdtBalance %> ETH</h1>
+            <h5 class="row"><%= usrdtBalance %> USD</h1>
+          </div>
+        </div>
+        <footer>
+          <input
               type="text"
+              class="form-control"
               value="<%=usrAddress%>"
               id="walletAddress"
               readonly
             />
-            <button onclick="copyToClipboard()">Copy</button>
-          </h5>
-        </div>
-      </div>
+          <button class="btn text-light" onclick="copyToClipboard()">
+              copy
+            </button>
+        </footer>
+      </main>
     </div>
     <script>
       function copyToClipboard() {

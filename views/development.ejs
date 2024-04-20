@@ -2,40 +2,128 @@
   <%-include('./modules/head')%>
   <body>
     <%-include('./modules/nav')%>
-    <div class="container">
-      <h1>Integration Guide for Cryptic Payment System</h1>
-      <p>This guide will help you integrate the Cryptic payment system into your website.</p>
+    <div class="container development">
+      <div class="guide-header">
+        <h1>Integration Guide for <br> Cryptic Payment System</h1>
+        <h3>This guide will help you integrate the Cryptic payment system into your website.</h3>
+      </div>
+         <div class="steps">
+          <h2>Step 1: Add the Stylesheet</h2>
+          <p>Add the following line into the &lt;head&gt; of your HTML page:</p>
+         </div>
+            <div class="vscode">
+              <div class="code-header">
+              </div>
+              <pre class="myPreTag"><code class="language-html">&lt;link rel="stylesheet" href="http://localhost:3000/stylesheets/widget.css" /&gt;</code></pre>
+            </div>
+            <div class="steps">
+            <h2>Step 2: Add the Payment Button</h2>
+            <p>Add the following line where you want the payment button to appear:</p>
+          </div>
+            <div class="vscode">
+              <div class="code-header">
+              </div>
+              <pre class="myPreTag"><code class="language-html">&lt;button id="payWithCrypticBtn" class="btn btn-primary"&gt;Pay with Cryptic&lt;/button&gt;</code></pre>
+            </div>
+            <div class="steps">
+            <h2>Step 3: Add the Payment Processing Script</h2>
+            <p>Add the following script to your page. This script will process the payment when the button is clicked 
+           <br><span style="color: black;">Replace the <span style="color: red;">amount variable</span>  with your own value </span>:</p>
+          </div> 
+           <div class="vscode">
+              <div class="code-header">
+              </div>
+              <pre class="myPreTag"><code class="language-javascript">
+&lt;script&gt;
+
+document.getElementById("payWithCrypticBtn").addEventListener("click", function () {
+
+<span class="green">// Get destination and amount from the vendor's website</span>
+
+var destination = "<%=user.sub%>"; <span class="green">// Replace with actual destination</span>
+var amount = 0.0001; <span class="green">// Replace with actual amount</span>
+
+<span class="green">// Redirect user to Cryptic website with confirmation data</span>
+
+window.location.href ="http://localhost:3000/confirm-payment?destination=" +
+encodeURIComponent(destination) +"&amount=" + encodeURIComponent(amount);
+
+});
+
+&lt;/script&gt;
+</code language="JavaScript"></pre>
+            </div>
+            
+          </div>
+  </div>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js" integrity="sha512-l2HbRqObg4Y3tEx4xNZFKmVhA3gdWfbPUrLVTxgx3+O65FTZfhf7NU7Vd7Q4qfk6R8iabJfU9mLoqBC6HfHQ3w==" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-markup.min.js" integrity="sha512-WJz7Jz86CksPldE86a/JvMvAfVwET4/tmf8teC5/lFkmL1GkPx4r8uhmSdnlE6fT7b7s0xP4qT5V9EbGMzzqUQ==" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-javascript.min.js" integrity="sha512-l0ODQI1hldS3WuDDatbWvBUjTji/U2Uu7rj9oJnnpZn+Qj6oB9VX1sywD7EZzK6T9aK3P3B2F+Ll0s4H+yBpcw==" crossorigin="anonymous"></script>
   
-      <h2>Step 1: Add the Stylesheet</h2>
-      <p>Add the following line into the `<head>` of your HTML page:</p>
-      <pre><code>&lt;link rel="stylesheet" href="http://localhost:3000/stylesheets/widget.css" /&gt;</code></pre>
-  
-      <h2>Step 2: Add the Payment Button</h2>
-      <p>Add the following line where you want the payment button to appear:</p>
-      <pre><code>&lt;button id="payWithCrypticBtn" class="btn btn-primary"&gt;Pay with Cryptic&lt;/button&gt;</code></pre>
-  
-      <h2>Step 3: Add the Payment Processing Script</h2>
-      <p>Add the following script to your page. This script will process the payment when the button is clicked:</p>
-      <pre><code>
-  &lt;script&gt;
-    document
-      .getElementById("payWithCrypticBtn")
-      .addEventListener("click", function () {
-        // Get destination and amount from the vendor's website
-        var destination = "<%=user.sub%>"; // Replace with actual destination
-        var amount = 0.0001; // Replace with actual amount
-  
-        // Redirect user to Cryptic website with confirmation data
-        window.location.href =
-          "http://localhost:3000/confirm-payment?destination=" +
-          encodeURIComponent(destination) +
-          "&amount=" +
-          encodeURIComponent(amount);
-      });
-  &lt;/script&gt;
-      </code></pre>
-      <p>Remember to replace the `amount` variable with your own value.</p>
-    </div>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"
+  ></script>
+  <script>
+    // JavaScript code goes here
+  </script>
+  <script>
+    // Select all elements with the class "myPreTag"
+const preTags = document.querySelectorAll(".myPreTag");
+
+// Loop through each <pre> tag
+preTags.forEach(preTag => {
+// Create a copy button element for each <pre> tag
+const copyButton = document.createElement("span");
+copyButton.innerText = "Copy";
+copyButton.classList.add("copy-button");
+
+// Wrap the copy button and language span in a container
+const buttonContainer = document.createElement("span");
+buttonContainer.classList.add("copy-button-container");
+buttonContainer.appendChild(copyButton);
+
+// Insert the container before the language span
+preTag.previousElementSibling.insertBefore(buttonContainer, preTag.previousElementSibling.firstChild);
+
+// Add click event listener to the copy button
+copyButton.addEventListener("click", () => {
+  // Hide the copy button temporarily
+  copyButton.style.display = "none";
+
+  // Create a range and select the text inside the current <pre> tag
+  const range = document.createRange();
+  range.selectNode(preTag);
+  window.getSelection().removeAllRanges();
+  window.getSelection().addRange(range);
+
+  try {
+    // Copy the selected text to the clipboard
+    document.execCommand("copy");
+
+    // Alert the user that the text has been copied
+    copyButton.innerText = "Copied!";
+    setTimeout(function() {
+      copyButton.innerText = "Copy";
+    }, 2000);
+  } catch (err) {
+    console.error("Unable to copy text:", err);
+  } finally {
+    // Show the copy button again
+    copyButton.style.display = "inline";
+
+    // Deselect the text
+    window.getSelection().removeAllRanges();
+  }
+});
+});
+
+  </script>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>

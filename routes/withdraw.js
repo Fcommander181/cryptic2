@@ -54,7 +54,7 @@ async function sendEther(YourPrivateKey, RecipientWalletAddress, AmountToSend) {
 }
 
 router.get("/", requiresAuth(), async (req, res) => {
-  res.render("withdraw", { title: "Cryptic" });
+  res.render("withdraw", { title: "Cryptic", user: req.oidc.user });
 });
 
 router.post("/", requiresAuth(), async (req, res) => {
